@@ -75,12 +75,17 @@ class KeyboardVisibilityNotification {
   /// [subscribingId] has to contain an id previously returned on add
   static void removeListener(int subscribingId) {
     _list.remove(subscribingId);
+    if(_list.isEmpty) {
+      dispose();
+    }
   }
 
   /// Internal function to clear class on dispose
   static dispose() {
+
     _keyboardVisibilitySubscription?.cancel();
     _keyboardVisibilitySubscription = null;
+
   }
 
   static subscribe() {
