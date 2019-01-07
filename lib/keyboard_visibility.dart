@@ -58,6 +58,9 @@ class KeyboardVisibilityNotification {
   /// [onHide] is called when the keyboard disappears
   /// Returns a subscribing id that can be used to unsubscribe
   static int addNewListener({Function(bool) onChange, Function onShow, Function onHide}) {
+    if(_list.isEmpty) {
+      subscribe();
+    }
 
     _list[_currentIndex] = KeyboardVisibilitySubscriber(onChange: onChange, onShow: onShow, onHide: onHide);
     return _currentIndex++;
