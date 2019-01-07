@@ -1,8 +1,6 @@
 import 'package:flutter/services.dart';
 import 'dart:async';
 
-
-
 /// A base class to handle the subscribing events
 class KeyboardVisibilitySubscriber {
   /// Called when a keyboard visibility event occurs
